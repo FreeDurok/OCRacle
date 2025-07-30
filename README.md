@@ -35,7 +35,7 @@ It is also useful as a service component for **Data Loss Prevention (DLP)** soft
 
 ## **Dependencies**
 
-Python **3.9+** is recommended.
+Python **3.8+** is recommended.
 
 All required libraries are listed in the `requirements.txt` file.  
 Additionally, all necessary `.whl` package files are already included in the `wheels` directory, making OCRacle portable and ready for offline installation as described in the procedure below.
