@@ -32,7 +32,6 @@ It is also useful as a service component for **Data Loss Prevention (DLP)** soft
 * Optional verbose mode `-v / --verbose` to print files being processed
 * At the end of the scan, a summary with the total number of matches is shown, along with the start and end timestamps
 
----
 
 ## **Dependencies**
 
@@ -43,7 +42,6 @@ Additionally, all necessary `.whl` package files are already included in the `wh
 
 OCRacle includes a portable, pre-configured **Tesseract OCR** binary and tessdata in the `core` directory, no extra setup needed.
 
----
 
 ## **Portable / Offline Setup (Air‑Gapped)**
 
@@ -104,7 +102,6 @@ Copy the **entire OCRacle folder (including wheels/, requirements.txt, and code)
    python OCRacle.py /path/to/folder
    ```
 
----
 
 ## **Usage**
 
@@ -143,16 +140,12 @@ python OCRacle.py /path/to/folder --verbose > output.txt
    <img src=".img/OCRacle_usage.png" alt="OCRacle Screenshot" width="600"/>
 </p>
 
----
-
 ## **Configuration**
 
 Edit `config.py`:
 
 * `ESTENSIONS` → file extensions to scan
 * `RULES` → regex patterns to search
-
----
 
 ## **Output**
 
