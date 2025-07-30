@@ -32,18 +32,10 @@ It is also useful as a service component for Data Loss Prevention (DLP) software
 
 Python **3.9+** is recommended.
 
-Required libraries:
-
-```
-pytesseract
-pdf2image
-PyMuPDF
-Pillow
-```
+All required libraries are listed in the `requirements.txt` file.  
+Additionally, all necessary `.whl` package files are already included in the `wheels` directory, making OCRacle portable and ready for offline installation as described in the procedure below.
 
 OCRacle includes a portable, pre-configured **Tesseract OCR** binary and tessdata in the `core` directory, no extra setup needed.
-
-For PDF OCR, **Poppler** (or Ghostscript) is still required for `pdf2image`. This can also be made portable as shown below.
 
 ---
 
