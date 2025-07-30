@@ -116,6 +116,10 @@ Save results:
 python main.py /path/to/folder --json results.json --csv results.csv
 ```
 
+<p align="center">
+   <img src=".img/OCRacle_usage.png" alt="OCRacle Screenshot" width="600"/>
+</p>
+
 ---
 
 ## **Configuration**
