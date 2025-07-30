@@ -27,6 +27,9 @@ It is also useful as a service component for **Data Loss Prevention (DLP)** soft
   * Console
   * JSON
   * CSV
+* Optionally include the full extracted text in JSON/CSV output with `--include-text`
+* Each result contains a progressive `match_id`
+* At the end of the scan, a summary with the total number of matches is shown
 
 ---
 
@@ -116,6 +119,12 @@ Save results:
 python OCRacle.py /path/to/folder --json results.json --csv results.csv
 ```
 
+Include extracted text in output:
+
+```bash
+python OCRacle.py /path/to/folder --json results.json --include-text
+```
+
 <p align="center">
    <img src=".img/OCRacle_usage.png" alt="OCRacle Screenshot" width="600"/>
 </p>
@@ -133,19 +142,23 @@ Edit `config.py`:
 
 ## **Output**
 
-Example console output:
-
-```
-[INFO] Processing file: /docs/invoice1.pdf
-[MATCH] Rule=iban File=/docs/invoice1.pdf
-```
-
 Example JSON:
 
 ```json
 [
-  {"rule": "iban", "file": "/docs/invoice1.pdf"},
-  {"rule": "secret_word", "file": "/images/photo.png"}
+  {
+    "match_id": 1,
+    "rule": "iban",
+    "file": "/docs/invoice1.pdf",
+    "text": "..." 
+  },
+  {
+    "match_id": 2,
+    "rule": "secret_word",
+    "file": "/images/photo.png",
+    "text": "..."
+  }
 ]
+
 ```
 
