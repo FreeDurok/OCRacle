@@ -8,7 +8,7 @@
 </p>
 
 OCRacle is a modular Python tool (optionally portable) that recursively scans directories, extracts text from PDF and image files (native PDF text and OCR), and searches for keywords or regex patterns. Results can be printed on the console and optionally saved to JSON or CSV.
-It is also useful as a service component for Data Loss Prevention (DLP) software.
+It is also useful as a service component for **Data Loss Prevention (DLP)** software.
 
 <p align="center">
    <a href="https://ko-fi.com/durok" target="_blank">
