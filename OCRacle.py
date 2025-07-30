@@ -5,7 +5,7 @@ from core.output_writer import save_to_json, save_to_csv
 
 def main():
     init(autoreset=True)
-    print(Fore.RED + r"""
+    print(Fore.MAGENTA + r"""
   ___   ____ ____            _     
  / _ \ / ___|  _ \ __ _  ___| | ___ 
 | | | | |   | |_) / _` |/ __| |/ _ \
@@ -16,18 +16,20 @@ OCRacle - Directory OCR Scanner
 Scans a directory for images/pdf documents and extracts text using OCR.
 Outputs results in JSON and/or CSV format.
  
-Author @Alessio Carletti Aka @Durok
+Author @Alessio Carletti aka @Durok
 """ + Style.RESET_ALL)
     if len(sys.argv) < 2:
-        print(f"Usage: python {sys.argv[0]} <directory> [--json output.json] [--csv output.csv]")
+        print(f"Usage: python {sys.argv[0]} <directory> [--json output.json] [--csv output.csv] [--include-text]")
         print("  <directory>         Directory to scan for images")
         print("  --json output.json  (Optional) Save results to JSON file")
         print("  --csv output.csv    (Optional) Save results to CSV file")
+        print("  --include-text      (Optional) Include extracted text in the results")
         sys.exit(1)
 
     base_path = sys.argv[1]
     json_path = None
     csv_path = None
+    include_text = False
 
     # Parse options
     args = sys.argv[2:]
@@ -36,9 +38,11 @@ Author @Alessio Carletti Aka @Durok
             json_path = args[i + 1]
         if arg == "--csv" and i + 1 < len(args):
             csv_path = args[i + 1]
+        if arg == "--include-text":
+            include_text = True
 
     # Perform the scan
-    results = scan_directory(base_path)
+    results = scan_directory(base_path, include_text=include_text)
 
     # Save output if requested
     if json_path:
