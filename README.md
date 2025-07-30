@@ -97,7 +97,7 @@ Copy the **entire OCRacle folder (including wheels/, requirements.txt, and code)
 4. Run:
 
    ```bash
-   python main.py /path/to/folder
+   python OCRacle.py /path/to/folder
    ```
 
 ---
@@ -107,13 +107,13 @@ Copy the **entire OCRacle folder (including wheels/, requirements.txt, and code)
 Console only:
 
 ```bash
-python main.py /path/to/folder
+python OCRacle.py /path/to/folder
 ```
 
 Save results:
 
 ```bash
-python main.py /path/to/folder --json results.json --csv results.csv
+python OCRacle.py /path/to/folder --json results.json --csv results.csv
 ```
 
 <p align="center">
