@@ -122,7 +122,7 @@ python OCRacle.py /path/to/folder --json results.json --csv results.csv
 Include extracted text in output:
 
 ```bash
-python OCRacle.py /path/to/folder --json results.json --include-text
+python OCRacle.py /path/to/folder --json results.json --csv results.csv --include-text
 ```
 
 <p align="center">
