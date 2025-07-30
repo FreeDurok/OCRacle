@@ -11,19 +11,21 @@ def main():
 | | | | |   | |_) / _` |/ __| |/ _ \
 | |_| | |___|  _ < (_| | (__| |  __/
  \___/ \____|_| \_\__,_|\___|_|\___|
-
-OCRacle - Directory OCR Scanner
-Scans a directory for images/pdf documents and extracts text using OCR.
+        
+      OCRacle - Document OCR Scanner
+      Author @Alessio Carletti
+          
+Scans a directory recursively for images/pdf documents and extracts text using OCR.
+Matches extracted text against detection rules.
 Outputs results in JSON and/or CSV format.
  
-Author @Alessio Carletti aka @Durok
 """ + Style.RESET_ALL)
     if len(sys.argv) < 2:
-        print(f"Usage: python {sys.argv[0]} <directory> [--json output.json] [--csv output.csv] [--include-text]")
-        print("  <directory>         Directory to scan for images")
-        print("  --json output.json  (Optional) Save results to JSON file")
-        print("  --csv output.csv    (Optional) Save results to CSV file")
-        print("  --include-text      (Optional) Include extracted text in the results")
+        print(Fore.MAGENTA + f"Usage: python {sys.argv[0]} <directory> [--json output.json] [--csv output.csv] [--include-text]" + Style.RESET_ALL)
+        print(Fore.MAGENTA + "  <directory>         Directory to scan for images" + Style.RESET_ALL)
+        print(Fore.MAGENTA + "  --json output.json  (Optional) Save results to JSON file" + Style.RESET_ALL)
+        print(Fore.MAGENTA + "  --csv output.csv    (Optional) Save results to CSV file" + Style.RESET_ALL)
+        print(Fore.MAGENTA + "  --include-text      (Optional) Include extracted text in the results" + Style.RESET_ALL)
         sys.exit(1)
 
     base_path = sys.argv[1]
