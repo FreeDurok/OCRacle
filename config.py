@@ -7,4 +7,7 @@ RULES = {
     "fiscal_code": r"\b[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]\b",
     "secret_word": r"\bsecret\b",
     "secret_word2": r"\bdelta\b",
+    "secret_word3": r"\bseguro\b",
+    "secret_word4": r"\bContraente\b",
+    "secret_word5": r"\bTRABAJO\b",
 }

@@ -1,0 +1,54 @@
+[INFO] Using portable Tesseract at /home/user/security-projects/OCRacle/core/tesseract/tesseract
+
+  ___   ____ ____            _     
+ / _ \ / ___|  _ \ __ _  ___| | ___ 
+| | | | |   | |_) / _` |/ __| |/ _ \
+| |_| | |___|  _ < (_| | (__| |  __/
+ \___/ \____|_| \_\__,_|\___|_|\___|
+        
+      OCRacle - Document OCR Scanner
+      Author @Alessio Carletti
+          
+Scans a directory recursively for images/pdf documents and extracts text using OCR.
+Matches extracted text against detection rules.
+Outputs results in JSON and/or CSV format.
+ 
+
+[*] Scan started at 2025-07-30 20:30:09
+[*] Found 10 files to process
+
+--- (1/10) ---
+[*] Processing: sample_data/Screenshot 2025-07-30 175255.png
+[+] Rule=secret_word2 File=sample_data/Screenshot 2025-07-30 175255.png Matches=9
+--- (2/10) ---
+[*] Processing: sample_data/archive/images/4.jpg
+--- (3/10) ---
+[*] Processing: sample_data/archive/images/3.png
+[+] Rule=secret_word5 File=sample_data/archive/images/3.png Matches=1
+--- (4/10) ---
+[*] Processing: sample_data/archive/images/2.jpg
+--- (5/10) ---
+[*] Processing: sample_data/archive/images/1.jpg
+[+] Rule=secret_word5 File=sample_data/archive/images/1.jpg Matches=6
+--- (6/10) ---
+[*] Processing: sample_data/archive/images/0.jpg
+[+] Rule=secret_word5 File=sample_data/archive/images/0.jpg Matches=2
+--- (7/10) ---
+[*] Processing: sample_data/archive/boxes/2.png
+[+] Rule=secret_word4 File=sample_data/archive/boxes/2.png Matches=3
+--- (8/10) ---
+[*] Processing: sample_data/archive/boxes/0.png
+[+] Rule=secret_word5 File=sample_data/archive/boxes/0.png Matches=2
+--- (9/10) ---
+[*] Processing: sample_data/archive/boxes/1.png
+[+] Rule=secret_word5 File=sample_data/archive/boxes/1.png Matches=6
+--- (10/10) ---
+[*] Processing: sample_data/archive/boxes/3.png
+
+[*] Scan finished at 2025-07-30 20:30:20
+[*] Duration: 0:00:10.806591
+
+[=] Total matches found: 7
+
+[+] Results saved to JSON: out.json
+[+] Results saved to CSV: out.csv

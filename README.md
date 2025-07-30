@@ -29,7 +29,8 @@ It is also useful as a service component for **Data Loss Prevention (DLP)** soft
   * CSV
 * Optionally include the full extracted text in JSON/CSV output with `--include-text`
 * Each result contains a progressive `match_id`
-* At the end of the scan, a summary with the total number of matches is shown
+* Optional verbose mode `-v / --verbose` to print files being processed
+* At the end of the scan, a summary with the total number of matches is shown, along with the start and end timestamps
 
 ---
 
@@ -124,6 +125,19 @@ Include extracted text in output:
 ```bash
 python OCRacle.py /path/to/folder --json results.json --csv results.csv --include-text
 ```
+
+Enable verbose mode to print files being processed:
+
+```bash
+python OCRacle.py /path/to/folder --verbose
+```
+
+Redirect console output to a file (e.g., `output.txt`):
+
+```bash
+python OCRacle.py /path/to/folder --verbose > output.txt
+```
+
 
 <p align="center">
    <img src=".img/OCRacle_usage.png" alt="OCRacle Screenshot" width="600"/>

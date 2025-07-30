@@ -21,17 +21,19 @@ Outputs results in JSON and/or CSV format.
  
 """ + Style.RESET_ALL)
     if len(sys.argv) < 2:
-        print(Fore.WHITE + f"Usage: python {sys.argv[0]} <directory> [--json output.json] [--csv output.csv] [--include-text]" + Style.RESET_ALL)
+        print(Fore.WHITE + f"Usage: python {sys.argv[0]} <directory> [--json output.json] [--csv output.csv] [--include-text] [-v|--verbose]" + Style.RESET_ALL)
         print(Fore.WHITE + "  <directory>         Directory to scan for images" + Style.RESET_ALL)
         print(Fore.WHITE + "  --json output.json  (Optional) Save results to JSON file" + Style.RESET_ALL)
         print(Fore.WHITE + "  --csv output.csv    (Optional) Save results to CSV file" + Style.RESET_ALL)
         print(Fore.WHITE + "  --include-text      (Optional) Include extracted text in the results" + Style.RESET_ALL)
+        print(Fore.WHITE + "  -v / --verbose      (Optional) Show files being processed" + Style.RESET_ALL)
         sys.exit(1)
 
     base_path = sys.argv[1]
     json_path = None
     csv_path = None
     include_text = False
+    verbose = False
 
     # Parse options
     args = sys.argv[2:]
@@ -42,9 +44,11 @@ Outputs results in JSON and/or CSV format.
             csv_path = args[i + 1]
         if arg == "--include-text":
             include_text = True
+        if arg in ("-v", "--verbose"):
+            verbose = True
 
     # Perform the scan
-    results = scan_directory(base_path, include_text=include_text)
+    results = scan_directory(base_path, include_text=include_text, verbose=verbose)
 
     # Save output if requested
     if json_path:
