@@ -13,7 +13,7 @@ def main():
  \___/ \____|_| \_\__,_|\___|_|\___|
 
 OCRacle - Directory OCR Scanner
-Scans a directory for images and extracts text using OCR.
+Scans a directory for images/pdf documents and extracts text using OCR.
 Outputs results in JSON and/or CSV format.
  
 Author @Alessio Carletti Aka @Durok

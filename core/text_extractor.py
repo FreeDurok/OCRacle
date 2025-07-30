@@ -29,7 +29,7 @@ def extract_pdf_native(pdf_path):
             text.append(page.get_text("text"))
         doc.close()
     except Exception as e:
-        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Native PDF reading failed {pdf_path}: {e}")
+        print(f"{Fore.RED}[!]{Style.RESET_ALL} Native PDF reading failed {pdf_path}: {e}")
     return "\n".join(text)
 
 def extract_pdf_ocr(pdf_path):
@@ -40,7 +40,7 @@ def extract_pdf_ocr(pdf_path):
         for p in pages:
             text.append(pytesseract.image_to_string(p))
     except Exception as e:
-        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} OCR on PDF failed {pdf_path}: {e}")
+        print(f"{Fore.RED}[!]{Style.RESET_ALL} OCR on PDF failed {pdf_path}: {e}")
     return "\n".join(text)
 
 def extract_image(img_path):
@@ -49,7 +49,7 @@ def extract_image(img_path):
         img = Image.open(img_path)
         return pytesseract.image_to_string(img)
     except Exception as e:
-        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} OCR on image failed {img_path}: {e}")
+        print(f"{Fore.RED}[!]{Style.RESET_ALL} OCR on image failed {img_path}: {e}")
         return ""
 
 def extract_text(file_path):

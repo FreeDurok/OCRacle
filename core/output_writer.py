@@ -7,9 +7,9 @@ def save_to_json(results, output_path):
     try:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=4, ensure_ascii=False)
-        print(f"[INFO] Results saved to JSON: {output_path}")
+        print(f"[+] Results saved to JSON: {output_path}")
     except Exception as e:
-        print(f"[ERROR] Failed to save JSON: {e}")
+        print(f"[!] Failed to save JSON: {e}")
 
 def save_to_csv(results, output_path):
     """Save matches to a CSV file."""
@@ -19,6 +19,6 @@ def save_to_csv(results, output_path):
             writer.writeheader()
             for r in results:
                 writer.writerow(r)
-        print(f"[INFO] Results saved to CSV: {output_path}")
+        print(f"[+] Results saved to CSV: {output_path}")
     except Exception as e:
-        print(f"[ERROR] Failed to save CSV: {e}")
+        print(f"[!] Failed to save CSV: {e}")
