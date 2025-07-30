@@ -5,7 +5,7 @@ from core.output_writer import save_to_json, save_to_csv
 
 def main():
     init(autoreset=True)
-    print(Fore.MAGENTA + r"""
+    print(Fore.CYAN + r"""
   ___   ____ ____            _     
  / _ \ / ___|  _ \ __ _  ___| | ___ 
 | | | | |   | |_) / _` |/ __| |/ _ \
@@ -21,11 +21,11 @@ Outputs results in JSON and/or CSV format.
  
 """ + Style.RESET_ALL)
     if len(sys.argv) < 2:
-        print(Fore.MAGENTA + f"Usage: python {sys.argv[0]} <directory> [--json output.json] [--csv output.csv] [--include-text]" + Style.RESET_ALL)
-        print(Fore.MAGENTA + "  <directory>         Directory to scan for images" + Style.RESET_ALL)
-        print(Fore.MAGENTA + "  --json output.json  (Optional) Save results to JSON file" + Style.RESET_ALL)
-        print(Fore.MAGENTA + "  --csv output.csv    (Optional) Save results to CSV file" + Style.RESET_ALL)
-        print(Fore.MAGENTA + "  --include-text      (Optional) Include extracted text in the results" + Style.RESET_ALL)
+        print(Fore.WHITE + f"Usage: python {sys.argv[0]} <directory> [--json output.json] [--csv output.csv] [--include-text]" + Style.RESET_ALL)
+        print(Fore.WHITE + "  <directory>         Directory to scan for images" + Style.RESET_ALL)
+        print(Fore.WHITE + "  --json output.json  (Optional) Save results to JSON file" + Style.RESET_ALL)
+        print(Fore.WHITE + "  --csv output.csv    (Optional) Save results to CSV file" + Style.RESET_ALL)
+        print(Fore.WHITE + "  --include-text      (Optional) Include extracted text in the results" + Style.RESET_ALL)
         sys.exit(1)
 
     base_path = sys.argv[1]
