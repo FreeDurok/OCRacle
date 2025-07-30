@@ -13,11 +13,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Path to portable tesseract binary
 tesseract_bin = os.path.join(BASE_DIR, "core", "tesseract", "tesseract")  # on Linux: "tesseract"
 tessdata_dir = os.path.join(BASE_DIR, "core", "tesseract", "tessdata")
+tesseract_lib_dir = os.path.join(BASE_DIR, "core", "tesseract", "lib")
 
 # If portable version exists, configure pytesseract
 if os.path.exists(tesseract_bin):
     pytesseract.pytesseract.tesseract_cmd = tesseract_bin
     os.environ["TESSDATA_PREFIX"] = tessdata_dir
+    if os.path.exists(tesseract_lib_dir):
+        current_ld = os.environ.get("LD_LIBRARY_PATH", "")
+        os.environ["LD_LIBRARY_PATH"] = f"{tesseract_lib_dir}:{current_ld}"
     print(f"{Fore.GREEN}[INFO]{Style.RESET_ALL} Using portable Tesseract at {tesseract_bin}")
 
 def extract_pdf_native(pdf_path):

@@ -204,3 +204,7 @@ __marimo__/
 
 # sample files
 sample_data/
+
+# libs 
+!core/tesseract/lib/
+!core/tesseract/lib/*.so
