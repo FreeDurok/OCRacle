@@ -18,6 +18,6 @@ def scan_directory(base_path):
                 text = extract_text(path)
                 for rule_name, pattern in RULES.items():
                     if re.search(pattern, text, re.IGNORECASE):
-                        print(f"{Fore.RED}[WARNING]{Style.RESET_ALL} {Fore.GREEN}Rule={rule_name} File={path}{Style.RESET_ALL}")
+                        print(f"{Fore.RED}[MATCH]{Style.RESET_ALL} {Fore.GREEN}Rule={rule_name} File={path}{Style.RESET_ALL}")
                         matches.append({"rule": rule_name, "file": path})
     return matches
