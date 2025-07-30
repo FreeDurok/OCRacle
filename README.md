@@ -4,8 +4,7 @@
     <img src=".img/OCRacle_Logo.png" alt="OCRacle Logo" width="300"/>
 </p>
 
-OCRacle is a modular Python tool that recursively scans directories, extracts text from PDF and image files (native PDF text and OCR), and searches for keywords or regex patterns.
-Results can be printed on console and optionally saved to JSON or CSV.
+OCRacle is a modular Python tool (optionally portable) that recursively scans directories, extracts text from PDF and image files (native PDF text and OCR), and searches for keywords or regex patterns. Results can be printed on the console and optionally saved to JSON or CSV.
 It is also useful as a service component for Data Loss Prevention (DLP) software.
 
 ## **Main Features**
@@ -22,8 +21,6 @@ It is also useful as a service component for Data Loss Prevention (DLP) software
 
 ---
 
----
-
 ## **Dependencies**
 
 Python **3.9+** is recommended.
@@ -37,7 +34,7 @@ PyMuPDF
 Pillow
 ```
 
-OCRacle includes a portable, pre-configured **Tesseract OCR** binary and tessdata in the `core` directory—no extra setup needed.
+OCRacle includes a portable, pre-configured **Tesseract OCR** binary and tessdata in the `core` directory, no extra setup needed.
 
 For PDF OCR, **Poppler** (or Ghostscript) is still required for `pdf2image`. This can also be made portable as shown below.
 
