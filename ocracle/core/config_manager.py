@@ -5,7 +5,7 @@ from typing import Dict
 class ConfigManager:
     """Loads configuration (rules, magic signatures) from config.py or external YAML."""
 
-    def __init__(self, module_name: str = "config", rule_file: str = None):
+    def __init__(self, module_name: str = "ocracle.config.config", rule_file: str = None):
         self.module_name = module_name
         self.rule_file = rule_file
         self._config = None
