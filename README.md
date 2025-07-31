@@ -7,8 +7,8 @@
     <img src=".img/OCRacle_Logo.png" alt="OCRacle Logo" width="300"/>
 </p>
 
-OCRacle is a modular Python tool (optionally portable) that recursively scans directories, extracts text from PDF and image files (native PDF text and OCR), and searches for keywords or regex patterns. Results can be printed on the console and optionally saved to JSON or CSV.
-It is also useful as a service component for **Data Loss Prevention (DLP)** software.
+**OCRacle** is a modular Python tool (optionally portable) that recursively scans directories, extracts text from PDF and image files (native PDF text and OCR), and searches for keywords or regex patterns. 
+Results can be printed on the console and optionally saved to JSON or CSV. It is also useful as a service component for **Data Loss Prevention (DLP)** software.
 
 <p align="center">
    <a href="https://ko-fi.com/durok" target="_blank">
@@ -16,38 +16,41 @@ It is also useful as a service component for **Data Loss Prevention (DLP)** soft
    </a>
 </p>
 
-## **Main Features**
 
-* Recursive scan of directories and subdirectories
-* Supported file types:
+## ✨ **Key Features**
+
+* Recursive scan of directories
+* File type detection using **magic bytes** (not extensions)
+* Supported file formats:
   * **PDF** (native text extraction via PyMuPDF, fallback to OCR)
-  * **Images** (JPG, PNG, TIFF, etc.)
-* Multiple keyword/regex rules
-* Output:
+  * **Images** (PNG, JPG, TIFF, etc.)
+* Detection rules defined in **YAML** (`ocracle/rules/rules.yaml`)
+* Output options:
   * Console
   * JSON
   * CSV
-* Optionally include the full extracted text in JSON/CSV output with `--include-text`
-* Each result contains a progressive `match_id`
-* Optional verbose mode `-v / --verbose` to print files being processed
-* At the end of the scan, a summary with the total number of matches is shown, along with the start and end timestamps
+* Options:
+  * `--include-text`: include extracted text in results
+  * `--rules <file>`: specify a custom YAML rule file
+  * `-v` / `--verbose`: show files being processed
+* Colorized logging
+* Scan summary with total matches and start/end timestamps
 
-
-## **Dependencies**
+## 📦 **Dependencies**
 
 Python **3.8+** is recommended.
 
 All required libraries are listed in the `requirements.txt` file.  
 Additionally, all necessary `.whl` package files are already included in the `wheels` directory, making OCRacle portable and ready for offline installation as described in the procedure below.
 
-OCRacle includes a portable, pre-configured **Tesseract OCR** binary and tessdata in the `core` directory, no extra setup needed.
+OCRacle includes a portable, pre-configured **Tesseract OCR** binary and tessdata in the `ocracle/core` directory, no extra setup needed.
 
 
-## **Portable / Offline Setup (Air‑Gapped)**
+## 📦 **Portable / Offline Setup (Air‑Gapped)**
 
 To deploy OCRacle in an isolated environment without internet:
 
-### **On an online machine**
+### 🌐 **On an online machine**
 
 1. Create and activate a virtual environment:
 
@@ -79,7 +82,7 @@ Copy the **entire OCRacle folder (including wheels/, requirements.txt, and code)
 
 ---
 
-### **On the offline machine**
+### 🔒 **On the offline machine**
 
 1. Create a virtual environment:
 
@@ -103,7 +106,7 @@ Copy the **entire OCRacle folder (including wheels/, requirements.txt, and code)
    ```
 
 
-## **Usage**
+## 🚀 **Usage**
 
 Console only:
 
@@ -129,43 +132,85 @@ Enable verbose mode to print files being processed:
 python OCRacle.py /path/to/folder --verbose
 ```
 
+Specify a custom YAML rules file:
+
+```bash
+python OCRacle.py /path/to/folder --rules custom_rules.yaml
+```
+
 Redirect console output to a file (e.g., `output.txt`):
 
 ```bash
 python OCRacle.py /path/to/folder --verbose > output.txt
 ```
 
-
 <p align="center">
    <img src=".img/OCRacle_usage.png" alt="OCRacle Screenshot" width="600"/>
 </p>
 
-## **Configuration**
 
-Edit `config.py`:
+## 📝 Rules (YAML)
 
-* `ESTENSIONS` → file extensions to scan
-* `RULES` → regex patterns to search
+Rules are stored in `ocracle/rules/rules.yaml`.
+Example:
+```yaml
+rules:
+  - name: IBAN_Detection
+    description: "Detect Italian IBAN numbers (handles optional spaces)"
+    pattern: "\\bI\\s*T\\s*\\d{2}(?:\\s*[A-Z0-9]){1,30}\\b"
 
-## **Output**
+  - name: SecretWords
+    description: "Detect sensitive keywords"
+    pattern: "\\b(secret|tlp|classified|password)\\b"
+```
+
+## 📊 **Output**
 
 Example JSON:
 
 ```json
 [
-  {
-    "match_id": 1,
-    "rule": "iban",
-    "file": "/docs/invoice1.pdf",
-    "text": "..." 
-  },
-  {
-    "match_id": 2,
-    "rule": "secret_word",
-    "file": "/images/photo.png",
-    "text": "..."
-  }
+    {
+        "index": 1,
+        "rule": "Email",
+        "file": "sample_data/Screenshot 2025-07-30 114122.png",
+        "match_count": 1,
+        "matched_text": [
+            "aspammer@website.com"
+        ],
+        "text": " ... "
+    },
+    {
+        "index": 2,
+        "rule": "BTC_Wallet",
+        "file": "sample_data/b.png",
+        "match_count": 2,
+        "matched_text": [
+            "bc1qwes635e7dl0dxzic2q044arj5h0e6n4z06pl4a",
+            "3J98t1WpEZ73CNmQviecrnyiWmqRhWNLy"
+        ],
+        "text": " ... "
+    },
+    {
+        "index": 3,
+        "rule": "Email",
+        "file": "sample_data/test-pdf.pdf",
+        "match_count": 1,
+        "matched_text": [
+            "aspammer@website.com"
+        ],
+        "text": " ... "
+    },
+    {
+        "index": 4,
+        "rule": "IBAN_Detection",
+        "file": "sample_data/Inside Images 894 x 892 IBAN.jpg",
+        "match_count": 1,
+        "matched_text": [
+            "IT 99 Z 12345 12345 123456789012\nyD"
+        ],
+        "text": " ... "
+    }
 ]
-
 ```
 
