@@ -15,11 +15,11 @@ class ConfigManager:
     def _load_config(self):
         self._config = importlib.import_module(self.module_name)
 
-        # Se è stato passato un file YAML, carica da lì
+        # If a YAML file was provided, load from there
         if self.rule_file:
             with open(self.rule_file, "r", encoding="utf-8") as f:
                 data = yaml.safe_load(f)
-            # struttura interna: dict {name: pattern}
+            # internal structure: dict {name: pattern}
             self._rules = {
                 rule["name"]: {
                     "description": rule.get("description", ""),
