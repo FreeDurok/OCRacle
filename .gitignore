@@ -206,5 +206,5 @@ __marimo__/
 sample_data/
 
 # libs 
-!core/tesseract/lib/
-!core/tesseract/lib/*.so
+!ocracle/core/tesseract/lib/
+!ocracle/core/tesseract/lib/*.so
