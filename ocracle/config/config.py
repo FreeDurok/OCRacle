@@ -10,5 +10,6 @@ MAGIC_SIGNATURES = {
 }
 
 default_rules_path = os.path.join(
-        os.path.dirname(__file__), "ocracle", "rules", "rules.yaml"
-    )
+    os.path.dirname(os.path.abspath(__file__)), "..", "rules", "rules.yaml"
+)
+default_rules_path = os.path.normpath(default_rules_path)

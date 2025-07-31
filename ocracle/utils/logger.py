@@ -14,20 +14,24 @@ def warning(message: str):
 def error(message: str):
     print(f"{Fore.RED}[!]{Style.RESET_ALL} {message}")
 
-# --- Varianti con spazio prima e dopo ---
+def highlight(message: str):
+    """Special highlighted log (magenta)."""
+    print(f"{Fore.MAGENTA}[#]{Style.RESET_ALL} {message}")
+
+# --- Varianti block ---
 
 def info_block(message: str):
-    """Info log with blank lines before and after, fully colored."""
     print(f"\n{Fore.CYAN}{Style.BRIGHT}[*] {message}{Style.RESET_ALL}")
 
 def success_block(message: str):
-    """Success log with blank lines before and after, fully colored."""
     print(f"\n{Fore.GREEN}{Style.BRIGHT}[+] {message}{Style.RESET_ALL}")
 
 def warning_block(message: str):
-    """Warning log with blank lines before and after, fully colored."""
     print(f"\n{Fore.YELLOW}{Style.BRIGHT}[!] {message}{Style.RESET_ALL}")
 
 def error_block(message: str):
-    """Error log with blank lines before and after, fully colored."""
     print(f"\n{Fore.RED}{Style.BRIGHT}[!] {message}{Style.RESET_ALL}")
+
+def highlight_block(message: str):
+    """Special highlighted log (magenta) with blank lines."""
+    print(f"\n{Fore.MAGENTA}{Style.BRIGHT}[#] {message}{Style.RESET_ALL}")

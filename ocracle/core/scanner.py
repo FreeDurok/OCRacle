@@ -40,6 +40,10 @@ class Scanner:
 
     def scan(self, base_path: str, include_text: bool = False, verbose: bool = False) -> List[Result]:
         """Scan a directory: detect files, extract text, apply rules."""
+
+        # Show which rule file is being used
+        logger.highlight_block(f"Using detection rules from: {self.config.rule_file}")
+
         start_time = datetime.now()
         logger.info_block(f"Scan started at {start_time:%Y-%m-%d %H:%M:%S}")
 

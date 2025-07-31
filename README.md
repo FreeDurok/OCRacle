@@ -108,6 +108,10 @@ Copy the **entire OCRacle folder (including wheels/, requirements.txt, and code)
 
 ## 🚀 **Usage**
 
+<p align="center">
+    <img src=".img/readme-help.png" alt="Help" width="600"/>
+</p>
+
 Console only:
 
 ```bash
