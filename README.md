@@ -70,9 +70,9 @@ Copy the **entire OCRacle folder (including wheels/, requirements.txt, and code)
 
 To install dependencies in a typical (online) environment, simply run:
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
