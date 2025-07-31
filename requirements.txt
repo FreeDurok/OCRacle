@@ -34,6 +34,7 @@ pytesseract==0.3.13
 python-dateutil==2.9.0.post0
 pytz==2025.2
 pyxnat==1.6.3
+PyYAML==6.0.2
 rdflib==7.1.4
 requests==2.32.4
 scipy==1.16.1

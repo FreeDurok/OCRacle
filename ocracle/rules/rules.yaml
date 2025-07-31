@@ -1,0 +1,56 @@
+rules:
+  - name: IBAN_Detection
+    description: "Detect Italian IBAN numbers (handles optional spaces)"
+    pattern: "\\bI\\s*T\\s*\\d{2}(?:\\s*[A-Z0-9]){1,30}\\b"
+
+  - name: FiscalCode
+    description: "Detect Italian Fiscal Codes (handles optional spaces)"
+    pattern: "\\b(?:[A-Z]\\s*){6}\\d{2}\\s*[A-Z]\\s*\\d{2}\\s*[A-Z]\\s*\\d{3}\\s*[A-Z]\\b"
+
+  - name: Email
+    description: "Detect email addresses"
+    pattern: "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+"
+
+  - name: PhoneNumber
+    description: "Detect international phone numbers (strict format)"
+    pattern: "\\+\\d{1,3}[\\s-]?\\d{6,14}\\b"
+
+  - name: CreditCard
+    description: "Detect credit card numbers (Visa, MasterCard, Amex)"
+    pattern: "\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})\\b"
+
+  - name: SSN
+    description: "Detect US Social Security Numbers"
+    pattern: "\\b\\d{3}-\\d{2}-\\d{4}\\b"
+
+  - name: SecretWords
+    description: "Detect sensitive keywords like TLP, red, classified"
+    pattern: "\\b(secret|tlp|tlp:\\s*(red|amber|green|clear)|classified|password|riservato|strettamente\\s*confidenziale)\\b"
+
+  - name: ConfidentialDocs
+    description: "Detect corporate confidentiality markings"
+    pattern: "\\b(confidential|internal\\s+use\\s+only|not\\s+for\\s+distribution|proprietary)\\b"
+
+  - name: Passport
+    description: "Detect passport numbers (generic alphanumeric)"
+    pattern: "\\b[A-Z]{1,2}\\d{6,9}\\b"
+
+  - name: IPAddress
+    description: "Detect IPv4 addresses"
+    pattern: "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b"
+
+  - name: URL
+    description: "Detect web URLs"
+    pattern: "\\bhttps?:\\/\\/[a-zA-Z0-9\\-\\.]+\\.[a-z]{2,}(?:\\/\\S*)?\\b"
+
+  - name: APIKeys
+    description: "Detect generic API keys or tokens"
+    pattern: "\\b(?:api[_-]?key|token|secret|bearer)\\s*[:=]\\s*[A-Za-z0-9\\-_]{16,}\\b"
+
+  - name: BTC_Wallet
+    description: "Detect Bitcoin wallet addresses (strict)"
+    pattern: "\\b(?:bc1[a-z0-9]{25,39}|[13][a-km-zA-HJ-NP-Z1-9]{26,33})\\b"
+
+  - name: ETH_Wallet
+    description: "Detect Ethereum wallet addresses"
+    pattern: "\\b0x[a-fA-F0-9]{40}\\b"
