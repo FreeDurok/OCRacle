@@ -1,5 +1,4 @@
-import os
-from config import MAGIC_SIGNATURES
+from ocracle.config.config import MAGIC_SIGNATURES
 
 def match_magic(path: str) -> bool:
     """

@@ -59,19 +59,7 @@ To deploy OCRacle in an isolated environment without internet:
    source venv/bin/activate
    ```
 
-2. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Freeze dependencies:
-
-   ```bash
-   pip freeze > requirements.txt
-   ```
-
-4. Download all packages as `.whl` files:
+2. Download all packages as `.whl` files:
 
    ```bash
    mkdir wheels
@@ -79,6 +67,12 @@ To deploy OCRacle in an isolated environment without internet:
    ```
 
 Copy the **entire OCRacle folder (including wheels/, requirements.txt, and code)** to the offline machine.
+
+To install dependencies in a typical (online) environment, simply run:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ---
 
